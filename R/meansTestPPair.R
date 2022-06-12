@@ -22,8 +22,7 @@ meansTestPPair <- function(nd1, av1, sd1, av2, sd2, sd3){
   var1 <- sd1^2
   var2 <- sd2^2
   var3 <- sd3^2
-  sdpool <- sqrt ( ( var1 + var2) / 2 )
-  cohen_d <- dav/sd3
+  effsize <- dav/sd3
   dof <- nd1-1
   t <- (abs(av1-av2))/sqrt(var3/nd1)
   pv <- pt(-t,df=dof)*2
@@ -55,5 +54,5 @@ meansTestPPair <- function(nd1, av1, sd1, av2, sd2, sd3){
          lty=c(1,1),
          col=c("blue", "red")
   )
-  return(list(Deviation=dav, Cohens_d=cohen_d, t_value=t, P_value=pv, lower_lim=cl_l, upper_lim=cl_u, judge=txj))
+  return(list(Deviation=dav, Effect_size=effsize, t_value=t, P_value=pv, lower_lim=cl_l, upper_lim=cl_u, judge=txj))
 }
